@@ -1,0 +1,58 @@
+/*Simple background color.*/
+body {
+    background-color: rgb(82, 82, 82);
+}
+
+/*Font and font size for such items.*/
+#CompanyHeader1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 75px;
+}
+
+/*Used to center the divider image.*/
+#PlacesToCheckOutImage {
+    display: inline-block;
+    vertical-align: top;
+}
+
+/*This is to round images.*/
+#Image1 {
+    border-radius: 50%;
+}
+
+/*Sets the text divider and where all those should be.*/
+#PlacesToCheckOutMessage {
+    display:inline-block;
+    position: absolute;
+    left: 150px;
+}
+
+/*Navigation bar stuff below.*/
+#Navigation1 {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+  
+#Navigation2 {
+    float: right;
+    float: left;
+}
+  
+#Navigation2 a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+  
+#Navigation2 a:hover {
+    background-color: #111;
+}
+
+.active {
+    background-color: #a5a5a5;
+}

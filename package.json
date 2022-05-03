@@ -1,0 +1,15 @@
+{
+  "name": "dibster-personal-website",
+  "version": "1.0.0",
+  "description": "DIBSTER's personal website, created in HTML.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "DIBSTER",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "express": "^4.17.3"
+  }
+}
