@@ -17,6 +17,6 @@ PersonalApp.listen(Configuration.Port, () => {
     console.log(Chalk.gray('--------------------------------------------------------------------------------------------------------------------------'));
     console.log(`${Chalk.blueBright(`[Personal Site]`)} Created By: ${Chalk.blueBright(`@DEV_DIBSTER`)}.`);
 	console.log(`${Chalk.blueBright(`[Personal Site]`)} Used For: ${Chalk.redBright(`Personal Website created by DIBSTER.`)}`);
-	console.log(`${Chalk.blueBright(`[Personal Site]`)} Contact Email: ${Chalk.redBright(`contact@dibster.is-a.dev`)}`);
+	console.log(`${Chalk.blueBright(`[Personal Site]`)} Contact Email: ${Chalk.redBright(`hello@dibster-is-a.engineer`)}`);
     console.log(Chalk.gray('--------------------------------------------------------------------------------------------------------------------------'));
 });
