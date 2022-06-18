@@ -11,6 +11,10 @@ PersonalApp.get('/', function(req, res){
     res.sendFile('./Pages/index.html', {root: "."});
 });
 
+PersonalApp.get('/projects', function(req, res){
+    res.sendFile('./Pages/projects.html', {root: "."});
+});
+
 PersonalApp.listen(Configuration.Port, () => {
     console.log(Chalk.gray('--------------------------------------------------------------------------------------------------------------------------'));
     console.log(`${Chalk.blueBright(`[Personal Site]`)} Online at ${Chalk.greenBright(Configuration.Website)}.`);
