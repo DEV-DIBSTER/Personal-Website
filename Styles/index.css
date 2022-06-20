@@ -10,7 +10,7 @@ body {
     1. Images are rounded, to give avatar type look.
     2. Images are given an animation, which will fade in.
 */
-#Images-Type-1 {
+.Images-Type-1 {
     border-radius: 50%;
     animation: FadeName 3s;
     -webkit-animation: FadeName 3s;
