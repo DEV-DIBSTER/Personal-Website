@@ -13,6 +13,10 @@ Website.get('/contact', async (Request, Response) => {
     await Response.status(200).sendFile('./Pages/contact.html', { root: __dirname });
 });
 
+Website.get('/projects', async (Request, Response) => {
+    await Response.status(200).sendFile('./Pages/projects.html', { root: __dirname });
+});
+
 //Serving static Website Assets.
 Website.use('/Assets', ExpressJS.static('Assets'));
 
