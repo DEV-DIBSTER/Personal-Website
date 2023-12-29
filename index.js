@@ -6,12 +6,17 @@ const Path = require('path');
 const Website = ExpressJS();
 Website.use(ExpressJS.static('Pages'));
 
+//Serves the root file.
 Website.get('/', async (Request, Response) => {
     await Response.status(200).sendFile('./Pages/index.html', { root: __dirname });
 });
 
-Website.get('/contact', async (Request, Response) => {
-    await Response.status(200).sendFile('./Pages/contact.html', { root: __dirname });
+//Dynamically serve my pages.
+Website.get('/pages/:page', async (Request, Response) => {
+    const FileName = Request.params.page;
+    const FilePath = Path.join(__dirname, 'Pages', `${FileName}.html`);
+
+    await Response.status(200).sendFile(FilePath);
 });
 
 //Dynamically serve website content.
@@ -28,10 +33,6 @@ Website.get('/scripts/:filename', async (Request, Response) => {
     const FilePath = Path.join(__dirname, 'Scripts', FileName);
 
     await Response.status(200).sendFile(FilePath);
-});
-
-Website.get('/projects', async (Request, Response) => {
-    await Response.status(200).sendFile('./Pages/projects.html', { root: __dirname });
 });
 
 //Serving static Website Assets.
