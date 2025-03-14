@@ -40,13 +40,13 @@ const Footer = () => {
               <Link href="https://github.com/DEV-DIBSTER" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                 <Github className="h-5 w-5 text-muted-foreground hover:text-foreground transition-colors" />
               </Link>
-              <Link href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+              <Link href="https://twitter.com/DEV_DIBSTER" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
                 <Twitter className="h-5 w-5 text-muted-foreground hover:text-foreground transition-colors" />
               </Link>
-              <Link href="https://linkedin.com/in/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <Link href="https://linkedin.com/in/adibsalam" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <Linkedin className="h-5 w-5 text-muted-foreground hover:text-foreground transition-colors" />
               </Link>
-              <Link href="mailto:contact@example.com" aria-label="Email">
+              <Link href="mailto:me@dibster.dev" aria-label="Email">
                 <Mail className="h-5 w-5 text-muted-foreground hover:text-foreground transition-colors" />
               </Link>
             </div>
