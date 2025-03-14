@@ -132,7 +132,7 @@ export default function ContactPage() {
               <Mail className="h-5 w-5 mt-0.5 text-muted-foreground" />
               <div>
                 <h3 className="font-medium">Email</h3>
-                <p className="text-sm text-muted-foreground">contact@example.com</p>
+                <p className="text-sm text-muted-foreground">me@dibster.dev</p>
               </div>
             </div>
             <div className="flex items-start space-x-4">
@@ -146,12 +146,12 @@ export default function ContactPage() {
               <MapPin className="h-5 w-5 mt-0.5 text-muted-foreground" />
               <div>
                 <h3 className="font-medium">Location</h3>
-                <p className="text-sm text-muted-foreground">New York, NY</p>
+                <p className="text-sm text-muted-foreground">Cornfield, Ohio</p>
               </div>
             </div>
 
             <div className="pt-4 border-t">
-              <h3 className="font-medium mb-4">Connect with me</h3>
+              <h3 className="font-medium mb-4">Connect with Me:</h3>
               <div className="flex space-x-4">
                 <Link 
                   href="https://github.com/DEV-DIBSTER" 
@@ -163,7 +163,7 @@ export default function ContactPage() {
                   <Github className="h-5 w-5" />
                 </Link>
                 <Link 
-                  href="https://twitter.com/" 
+                  href="https://twitter.com/DEV_DIBSTER" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="p-2 rounded-full bg-muted hover:bg-muted/80 transition-colors"
@@ -172,7 +172,7 @@ export default function ContactPage() {
                   <Twitter className="h-5 w-5" />
                 </Link>
                 <Link 
-                  href="https://linkedin.com/in/" 
+                  href="https://linkedin.com/in/adibsalam" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="p-2 rounded-full bg-muted hover:bg-muted/80 transition-colors"
