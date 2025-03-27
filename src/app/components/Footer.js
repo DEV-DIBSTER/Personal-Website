@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Github, Twitter, Linkedin, Mail } from "lucide-react";
+import { Github, Twitter, Linkedin, Mail, MessagesSquare } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -48,6 +48,9 @@ const Footer = () => {
               </Link>
               <Link href="mailto:me@dibster.dev" aria-label="Email">
                 <Mail className="h-5 w-5 text-muted-foreground hover:text-foreground transition-colors" />
+              </Link>
+              <Link href="https://discord.com/users/757296951925538856" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+                <MessagesSquare className="h-5 w-5 text-muted-foreground hover:text-foreground transition-colors"/>
               </Link>
             </div>
           </div>
