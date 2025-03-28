@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Moon, Sun, Home, Code, Mail, Menu } from "lucide-react";
@@ -40,16 +41,36 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
+  // Force re-render when pathname changes
+  useEffect(() => {
+    // This empty effect will cause a re-render when pathname changes
+  }, [pathname]);
+
+  // Define navItems with exact paths that will be used in both navigation and footer
   const navItems = [
     { name: "Home", url: "/", icon: Home },
     { name: "Projects", url: "/projects", icon: Code },
     { name: "Contact", url: "/contact", icon: Mail },
   ];
 
+  // Helper function to check if a path is active (exact match or starts with for nested routes)
+  const isActivePath = (path) => {
+    if (path === "/") {
+      return pathname === "/";
+    }
+    return pathname === path || pathname.startsWith(`${path}/`);
+  };
+
   return (
     <>
       <div className="relative w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 flex justify-center items-center py-4">
-        <NavBar items={navItems} className="hidden md:block" />
+        <NavBar 
+          items={navItems.map(item => ({
+            ...item,
+            active: isActivePath(item.url)
+          }))} 
+          className="hidden md:block" 
+        />
         
         <div className="absolute right-4 md:hidden">
           <Sheet>
@@ -61,18 +82,18 @@ const Navigation = () => {
             <SheetContent side="right">
               <div className="flex flex-col gap-4 mt-8">
                 {navItems.map((item) => (
-                  <a
+                  <Link
                     key={item.url}
                     href={item.url}
                     className={`flex items-center gap-2 text-sm font-medium transition-colors hover:text-primary ${
-                      pathname === item.url
+                      isActivePath(item.url)
                         ? "text-foreground"
                         : "text-foreground/60"
                     }`}
                   >
                     {item.icon && <item.icon className="h-4 w-4" />}
                     {item.name}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </SheetContent>
