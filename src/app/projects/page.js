@@ -7,71 +7,81 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export const metadata = {
   title: "Projects | DIBSTER",
-  description: "Explore my portfolio of web development and software engineering projects.",
+  description: "Explore my portfolio including BlueFoxHost, BrawlTools, Brawlify CDN, DanBot Hosting, and Pterodactyl Systems projects.",
 };
 
 export default function ProjectsPage() {
   const projects = [
     {
-      title: "Project One",
-      description: "A full-stack application built with Next.js and Node.js",
-      longDescription: "This project is a comprehensive full-stack application that demonstrates my ability to work with modern web technologies. It features user authentication, real-time data updates, and a responsive design that works across all devices.",
-      tags: ["Next.js", "React", "Node.js", "MongoDB"],
+      title: "BlueFoxHost",
+      description: "A hosting service focused on reliable and affordable solutions",
+      longDescription: "BlueFoxHost provides reliable and affordable hosting solutions with efficient customer service. I'm actively involved with this organization, contributing to its technical infrastructure and development.",
+      tags: ["Hosting", "Infrastructure", "Customer Service", "Web Services"],
       category: "web",
-      image: "/project1.jpg",
-      github: "https://github.com/DEV-DIBSTER/project-one",
-      demo: "https://project-one.example.com",
+      image: "/projects/bluefoxhost.png",
+      github: "https://github.com/BlueFoxHost",
+      demo: "https://bluefoxhost.com",
     },
     {
-      title: "Project Two",
-      description: "A responsive web application with modern UI/UX principles",
-      longDescription: "Project Two showcases my front-end development skills with a focus on creating an intuitive and engaging user experience. It implements modern design principles and animations to create a polished final product.",
-      tags: ["React", "Tailwind CSS", "Firebase"],
-      category: "web",
-      image: "/project2.jpg",
-      github: "https://github.com/DEV-DIBSTER/project-two",
-      demo: "https://project-two.example.com",
-    },
-    {
-      title: "Mobile App",
-      description: "Cross-platform mobile application built with React Native",
-      longDescription: "This mobile application was developed to work seamlessly across iOS and Android platforms. It includes features like offline support, push notifications, and integration with device hardware.",
-      tags: ["React Native", "Expo", "Firebase"],
-      category: "mobile",
-      image: "/project3.jpg",
-      github: "https://github.com/DEV-DIBSTER/mobile-app",
-      demo: "https://expo.dev/@dibster/mobile-app",
-    },
-    {
-      title: "CLI Tool",
-      description: "Command-line utility for automating development workflows",
-      longDescription: "This command-line tool was created to automate repetitive tasks in my development workflow. It's built with Node.js and is available as an npm package that can be installed globally.",
-      tags: ["Node.js", "CLI", "npm"],
+      title: "BrawlTools",
+      description: "Tools and utilities for the Brawl Stars ecosystem",
+      longDescription: "BrawlTools is a collection of tools and utilities designed for the Brawl Stars ecosystem, helping players and developers manage and enhance Brawl Stars-related content and gameplay data.",
+      tags: ["Brawl Stars", "Game Tools", "Data Management", "API"],
       category: "tools",
-      image: "/project4.jpg",
-      github: "https://github.com/DEV-DIBSTER/cli-tool",
-      demo: "https://www.npmjs.com/package/cli-tool",
+      image: "/projects/brawltools.png",
+      github: "https://github.com/BrawlTools1",
+      demo: "https://brawltools.net",
     },
     {
-      title: "E-commerce Platform",
-      description: "Full-featured online store with payment processing",
-      longDescription: "A complete e-commerce solution that includes product management, shopping cart functionality, user accounts, and secure payment processing with Stripe integration.",
-      tags: ["Next.js", "MongoDB", "Stripe", "Tailwind CSS"],
+      title: "Brawlify CDN",
+      description: "Content Delivery Network for Brawl Stars assets",
+      longDescription: "Brawlify CDN (BrawlCDN) is a Content Delivery Network for Brawl Stars assets, providing resources like in-game files, official fan kit materials, and social media content. Distributed under the Apache-2.0 license and not officially affiliated with Supercell.",
+      tags: ["CDN", "Brawl Stars", "Content Delivery", "Apache-2.0"],
       category: "web",
-      image: "/project5.jpg",
-      github: "https://github.com/DEV-DIBSTER/ecommerce",
-      demo: "https://ecommerce-example.com",
+      image: "/projects/brawlify.png",
+      github: "https://github.com/Bralify/BrawlCDN",
+      demo: "https://cdn.brawlify.com",
     },
     {
-      title: "Data Visualization Dashboard",
-      description: "Interactive dashboard for visualizing complex datasets",
-      longDescription: "This dashboard provides intuitive visualizations for complex data sets. It features interactive charts, filters, and export options to help users gain insights from their data.",
-      tags: ["React", "D3.js", "Express", "PostgreSQL"],
+      title: "DanBot Hosting",
+      description: "Hosting service integrated with Pterodactyl Systems",
+      longDescription: "DanBot Hosting is a hosting service that integrates with Pterodactyl Systems, an open-source game server management panel. I contribute to its Discord bot ecosystem and hosting infrastructure, including the DanBotHostingStats bot that integrates with the Pterodactyl API.",
+      tags: ["Hosting", "Discord Bot", "Pterodactyl", "Game Servers"],
       category: "web",
-      image: "/project6.jpg",
-      github: "https://github.com/DEV-DIBSTER/data-viz",
-      demo: "https://data-viz-example.com",
+      image: "/projects/danbot-hosting-banner.webp",
+      github: "https://github.com/DanBot-Hosting",
+      demo: "https://danbot.host",
     },
+    {
+      title: "DanBot Hosting - Pterodactyl Eggs",
+      description: "Open-source game server management platform",
+      longDescription: "Pterodactyl Systems is the underlying platform used by DanBot Hosting. My involvement includes leveraging and customizing this system for hosting purposes, particularly in connection with the DanBotHostingStats bot and other hosting infrastructure projects.",
+      tags: ["Game Servers", "Server Management", "Open Source", "Infrastructure"],
+      category: "tools",
+      image: "/projects/danbot-hosting-banner.webp",
+      github: "https://github.com/DanBot-Hosting/Pterodactyl-Eggs",
+      demo: "https://danbot.host",
+    },
+    {
+      title: "DanBotHostingStats",
+      description: "Discord bot for Pterodactyl API integration",
+      longDescription: "DanBotHostingStats is a Discord bot designed to integrate with the Pterodactyl API. It provides real-time information about server status, uptime, and other metrics, enhancing the user experience on Discord.",
+      tags: ["Discord Bot", "Pterodactyl API", "Server Monitoring" , "Infrastructure"],
+      category: "web",
+      image: "/projects/danbot-hosting-banner.webp",
+      github: "https://github.com/DanBot-Hosting/DanBotHostingStats",
+      demo: "https://discord.com/users/640161047671603205"
+    },
+    {
+      title: "DanBot Hosting - Discord Bot",
+      description: "Next iteration of DanBotHostingStats, built from the ground up.",
+      longDescription: "DanBotHostingStats is a Discord bot designed to integrate with the Pterodactyl API. It provides real-time information about server status, uptime, and other metrics, enhancing the user experience on Discord.",
+      tags: ["Discord Bot", "Pterodactyl API", "Server Monitoring" , "Infrastructure"],
+      category: "web",
+      image: "/projects/danbot-hosting-banner.webp",
+      github: "https://github.com/DanBot-Hosting/Discord-Bot",
+      demo: "https://discord.com/users/640161047671603205"
+    }
   ];
 
   return (
@@ -137,9 +147,12 @@ function ProjectCard({ project }) {
   return (
     <Card className="overflow-hidden flex flex-col h-full">
       <div className="aspect-video relative bg-muted">
-        {/* Replace with actual project images */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-muted flex items-center justify-center">
-          <Code className="h-10 w-10 text-muted-foreground" />
+          <img 
+            src={project.image} 
+            alt={project.title} 
+            className="object-contain h-full w-full p-4" 
+          />
         </div>
       </div>
       <CardHeader>
