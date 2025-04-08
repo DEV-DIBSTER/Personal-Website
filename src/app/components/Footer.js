@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Github, Twitter, Linkedin, Mail, MessagesSquare } from "lucide-react";
+import { Github, Twitter, Linkedin, Mail } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -29,7 +29,19 @@ const Footer = () => {
                 <Mail className="h-5 w-5 text-muted-foreground hover:text-foreground transition-colors" />
               </Link>
               <Link href="https://discord.com/users/757296951925538856" target="_blank" rel="noopener noreferrer" aria-label="Discord">
-                <MessagesSquare className="h-5 w-5 text-muted-foreground hover:text-foreground transition-colors"/>
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 48 48" 
+                  className="h-7 w-7 text-muted-foreground hover:text-foreground transition-colors stroke-current fill-none -mt-[4px] -ml-[2px]"
+                  strokeWidth="2.5"
+                >
+                  <path d="M10.9 30.1c2.65 2 6.64 4.1 13.1 4.1s10.44-2.1 13.1-4.1"/>
+                  <path d="M36 16.6c-3.23-1.65-6.43-3.2-12-3.2s-8.75 1.55-12 3.2"/>
+                  <path d="m20.5 13.7-1.4-2.76a17.06 17.06 0 0 0-8.18 3.27S6.75 20.25 6 32.18c4.22 4.87 10.64 4.9 10.64 4.9l2.48-3.3"/>
+                  <path d="m28.9 33.75 2.49 3.32s6.41-.02 10.64-4.88c-.75-11.93-4.92-18-4.92-18s-3.75-2.94-8.18-3.27l-1.36 2.77"/>
+                  <ellipse cx="18.68" cy="25.64" rx="2.87" ry="3.27"/>
+                  <ellipse cx="29.32" cy="25.64" rx="2.87" ry="3.27"/>
+                </svg>
               </Link>
             </div>
           </div>
