@@ -8,7 +8,8 @@ export function NavBar({
   items,
   className
 }) {
-  const [activeTab, setActiveTab] = useState(items[0].name)
+  // Use the active state from the items prop instead of managing our own state
+  // This ensures the active state is correctly set based on the current URL
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
@@ -31,13 +32,12 @@ export function NavBar({
         className="flex items-center gap-3 bg-background/5 border border-border backdrop-blur-lg py-1 px-1 rounded-full shadow-lg">
         {items.map((item) => {
           const Icon = item.icon
-          const isActive = activeTab === item.name
+          const isActive = item.active
 
           return (
             <Link
               key={item.name}
               href={item.url}
-              onClick={() => setActiveTab(item.name)}
               className={cn(
                 "relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-full transition-colors",
                 "text-foreground/80 hover:text-primary",

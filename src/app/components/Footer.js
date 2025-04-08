@@ -36,7 +36,7 @@ const Footer = () => {
         </div>
         
         <div className="mt-8 pt-8 border-t text-center text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} DIBSTER. All rights reserved.</p>
+          <p>© 2020-{new Date().getFullYear()} DIBSTER. All rights reserved.</p>
         </div>
       </div>
     </footer>

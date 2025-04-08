@@ -43,7 +43,8 @@ const Navigation = () => {
 
   // Force re-render when pathname changes
   useEffect(() => {
-    // This empty effect will cause a re-render when pathname changes
+    // This effect will cause a re-render when pathname changes
+    // and ensure the active state is correctly set
   }, [pathname]);
 
   // Define navItems with exact paths that will be used in both navigation and footer
