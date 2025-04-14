@@ -81,6 +81,16 @@ export default function ProjectsPage() {
       image: "/projects/danbot-hosting-banner.webp",
       github: "https://github.com/DanBot-Hosting/Discord-Bot",
       demo: "https://discord.com/users/640161047671603205"
+    },
+    {
+      title: "FBI Modern Vault Design",
+      description: "Modernized design for the FBI Vault Site.",
+      longDescription: "This project reimagines the FBI's Vault website with a modern, user-friendly interface. I created this concept to demonstrate how government archives could be more accessible through contemporary design principles. Built with Next.js and Shadcn UI components, the site features improved navigation, responsive layouts, and enhanced readability while maintaining the authoritative feel appropriate for federal resources. The redesign focuses on making declassified documents and historical records more discoverable for researchers, journalists, and the general public.",
+      tags: ["Webdesign", "Website", "Shadcn" , "Infrastructure"],
+      category: "web",
+      image: "/projects/danbot-hosting-banner.webp",
+      github: "https://github.com/DEV-DIBSTER",
+      demo: "https://concept-modern-fbi-site.vercel.app/"
     }
   ];
 
