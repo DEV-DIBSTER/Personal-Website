@@ -47,14 +47,13 @@ const Navigation = () => {
     // and ensure the active state is correctly set
   }, [pathname]);
 
-  // Define navItems with exact paths that will be used in both navigation and footer
   const navItems = [
     { name: "Home", url: "/", icon: Home },
     { name: "Projects", url: "/projects", icon: Code },
     { name: "Contact", url: "/contact", icon: Mail },
+    { name: "Certifications", url: "/certifications", icon: Code }
   ];
 
-  // Helper function to check if a path is active (exact match or starts with for nested routes)
   const isActivePath = (path) => {
     if (path === "/") {
       return pathname === "/";
