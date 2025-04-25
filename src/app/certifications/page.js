@@ -1,6 +1,6 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { BackgroundGradient } from "@/components/ui/background-gradient";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 
@@ -18,8 +18,8 @@ const certifications = [
     year: 2025,
   },
   {
-    name: "Google Cybersecurity Certification",
-    issuer: "Google",
+    name: "Google Cybersecurity Cert",
+    issuer: "Google/Coursera",
     link: "https://www.credly.com/earner/earned/badge/d9546bb9-b54b-4f76-a723-83c574855ea1",
     year: 2024,
   }
@@ -36,24 +36,24 @@ export default function CertificationsPage() {
       </div>
       <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-3">
         {certifications.map((cert, idx) => (
-          <Card key={idx} className="w-full h-full flex flex-col">
-            <CardHeader>
-              <CardTitle>
-                <Link href={cert.link} target="_blank" rel="noopener noreferrer" className="hover:underline">
-                  {cert.name}
-                </Link>
-              </CardTitle>
-              <CardDescription>
-                <span className="block">{cert.issuer}</span>
+          <BackgroundGradient key={idx} className="rounded-[22px] max-w-sm p-6 bg-white dark:bg-zinc-900">
+            <div className="flex flex-col h-full">
+              <div className="mb-4">
+                <h3 className="text-lg font-semibold mb-1">
+                  <Link href={cert.link} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                    {cert.name}
+                  </Link>
+                </h3>
+                <p className="text-sm text-muted-foreground">{cert.issuer}</p>
                 <Badge variant="secondary" className="mt-2">{cert.year}</Badge>
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <Link href={cert.link} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                View Certification
-              </Link>
-            </CardContent>
-          </Card>
+              </div>
+              <div className="mt-auto">
+                <Link href={cert.link} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                  View Certification
+                </Link>
+              </div>
+            </div>
+          </BackgroundGradient>
         ))}
       </div>
     </div>
