@@ -2,25 +2,27 @@
 
 import { BackgroundGradient } from "@/components/ui/background-gradient";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { ExternalLink } from "lucide-react";
 import Link from "next/link";
 
 const certifications = [
   {
     name: "CompTIA Security+",
     issuer: "CompTIA",
-    link: "https://www.credly.com/earner/earned/badge/e2e1388d-a791-445e-a62b-5a767cee01b9",
+    link: "https://www.credly.com/badges/e2e1388d-a791-445e-a62b-5a767cee01b9/public_url",
     year: 2025,
   },
   {
     name: "CompTIA Network+",
     issuer: "CompTIA",
-    link: "https://www.credly.com/earner/earned/badge/c5eef8c4-ad2c-40a4-bac6-5ef182566194",
+    link: "https://www.credly.com/badges/c5eef8c4-ad2c-40a4-bac6-5ef182566194/public_url",
     year: 2025,
   },
   {
     name: "Google Cybersecurity Cert",
     issuer: "Google/Coursera",
-    link: "https://www.credly.com/earner/earned/badge/d9546bb9-b54b-4f76-a723-83c574855ea1",
+    link: "https://www.credly.com/badges/d9546bb9-b54b-4f76-a723-83c574855ea1/public_url",
     year: 2024,
   }
 ];
@@ -48,9 +50,16 @@ export default function CertificationsPage() {
                 <Badge variant="secondary" className="mt-2">{cert.year}</Badge>
               </div>
               <div className="mt-auto">
-                <Link href={cert.link} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                  View Certification
-                </Link>
+                <Button
+                  size="sm"
+                  asChild
+                  className="bg-black text-white hover:bg-zinc-800"
+                >
+                  <Link href={cert.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                    View Certification
+                    <ExternalLink size={16} />
+                  </Link>
+                </Button>
               </div>
             </div>
           </BackgroundGradient>
