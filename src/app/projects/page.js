@@ -6,7 +6,6 @@ import { Github, ExternalLink } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export const metadata = {
-  title: "Projects | DIBSTER",
   description: "Explore my portfolio including BlueFoxHost, BrawlTools, Brawlify CDN, DanBot Hosting, and Pterodactyl Systems projects.",
 };
 
