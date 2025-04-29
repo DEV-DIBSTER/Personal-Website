@@ -36,33 +36,35 @@ export default function CertificationsPage() {
           Here are some of my professional certifications.
         </p>
       </div>
-      <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-y-6 gap-x-4 md:grid-cols-2 lg:grid-cols-3">
         {certifications.map((cert, idx) => (
-          <BackgroundGradient key={idx} className="rounded-[22px] max-w-sm p-6 bg-white dark:bg-zinc-900">
-            <div className="flex flex-col h-full">
-              <div className="mb-4">
-                <h3 className="text-lg font-semibold mb-1">
-                  <Link href={cert.link} target="_blank" rel="noopener noreferrer" className="hover:underline">
-                    {cert.name}
-                  </Link>
-                </h3>
-                <p className="text-sm text-muted-foreground">{cert.issuer}</p>
-                <Badge variant="secondary" className="mt-2">{cert.year}</Badge>
+          <div key={idx} className="flex justify-center">
+            <BackgroundGradient className="rounded-[22px] w-[320px] sm:w-[380px] p-4 sm:p-6 bg-white dark:bg-zinc-900">
+              <div className="flex flex-col h-full">
+                <div className="mb-4">
+                  <h3 className="text-lg font-semibold mb-1">
+                    <Link href={cert.link} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                      {cert.name}
+                    </Link>
+                  </h3>
+                  <p className="text-sm text-muted-foreground">{cert.issuer}</p>
+                  <Badge variant="secondary" className="mt-2">{cert.year}</Badge>
+                </div>
+                <div className="mt-auto">
+                  <Button
+                    size="sm"
+                    asChild
+                    className="bg-black text-white hover:bg-zinc-800"
+                  >
+                    <Link href={cert.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                      View Certification
+                      <ExternalLink size={16} />
+                    </Link>
+                  </Button>
+                </div>
               </div>
-              <div className="mt-auto">
-                <Button
-                  size="sm"
-                  asChild
-                  className="bg-black text-white hover:bg-zinc-800"
-                >
-                  <Link href={cert.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                    View Certification
-                    <ExternalLink size={16} />
-                  </Link>
-                </Button>
-              </div>
-            </div>
-          </BackgroundGradient>
+            </BackgroundGradient>
+          </div>
         ))}
       </div>
     </div>
