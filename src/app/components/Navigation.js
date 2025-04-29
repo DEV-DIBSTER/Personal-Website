@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import { Moon, Sun, Home, Code, Mail, Menu } from "lucide-react";
+import { Moon, Sun, Home, Code, Mail, Menu, X } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { NavBar } from "@/components/ui/tubelight-navbar";
@@ -11,7 +11,9 @@ import {
   Sheet,
   SheetContent,
   SheetTrigger,
-} from "@/components/ui/sheet";
+  SheetClose,
+  SheetTitle,
+  SheetDescription } from "@/components/ui/sheet";
 
 const Navigation = () => {
   const pathname = usePathname();
@@ -19,6 +21,7 @@ const Navigation = () => {
   const { theme, setTheme } = useTheme();
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [sheetOpen, setSheetOpen] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
@@ -73,28 +76,49 @@ const Navigation = () => {
         />
         
         <div className="absolute right-4 md:hidden">
-          <Sheet>
+          <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" className="mt-4 ml-7">
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right">
-              <div className="flex flex-col gap-4 mt-8">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.url}
-                    href={item.url}
-                    className={`flex items-center gap-2 text-sm font-medium transition-colors hover:text-primary ${
-                      isActivePath(item.url)
-                        ? "text-foreground"
-                        : "text-foreground/60"
-                    }`}
-                  >
-                    {item.icon && <item.icon className="h-4 w-4" />}
-                    {item.name}
-                  </Link>
-                ))}
+            <SheetContent
+              side="left"
+              className="!w-screen !max-w-none h-screen border-none p-0 bg-background/95 backdrop-blur-lg animate-fadeDownFast transition-none duration-200 [&>button:last-child]:hidden"
+            >
+              <button
+                onClick={() => setSheetOpen(false)}
+                aria-label="Close navigation"
+                className={`fixed top-2 right-4 z-50 rounded-full p-2 hover:bg-muted transition ${sheetOpen ? "fade-in-down" : ""}`}
+                type="button"
+              >
+                <X className="h-6 w-6" />
+              </button>
+              <div className="flex flex-col h-full bg-background/95">
+                <div className="px-8 pt-6">
+                  <SheetTitle></SheetTitle>
+                  <SheetDescription>
+                  </SheetDescription>
+                </div>
+                <div className="flex flex-col px-8 py-6 space-y-8 mt-4">
+                  {navItems.map((item, idx) => (
+                    <Link
+                      key={item.url}
+                      href={item.url}
+                      style={{
+                        animation: `fadeInNav 0.4s ease ${(0.1 + idx * 0.12).toFixed(2)}s both`
+                      }}
+                      className={`flex items-center gap-3 text-xl font-medium transition-colors hover:text-primary opacity-0 ${
+                        isActivePath(item.url)
+                          ? "text-foreground"
+                          : "text-foreground/60"
+                      }`}
+                    >
+                      {item.icon && <item.icon className="h-5 w-5" />}
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
               </div>
             </SheetContent>
           </Sheet>
