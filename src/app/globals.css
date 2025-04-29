@@ -124,3 +124,43 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes fadeDownFast {
+  0% {
+    opacity: 0;
+    filter: blur(16px);
+    transform: translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+@keyframes fadeInNav {
+  0% {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fadeDownFast {
+  animation: fadeDownFast 0.25s cubic-bezier(0.4,0,0.2,1) both;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-in-down {
+  animation: fadeInDown 0.3s ease;
+}
