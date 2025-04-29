@@ -105,6 +105,7 @@ const Navigation = () => {
                     <Link
                       key={item.url}
                       href={item.url}
+                      onClick={() => setSheetOpen(false)}
                       style={{
                         animation: `fadeInNav 0.4s ease ${(0.1 + idx * 0.12).toFixed(2)}s both`
                       }}
