@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Moon, Sun, Home, Code, Mail, Menu, X } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
@@ -20,29 +20,36 @@ const Navigation = () => {
   const [isMounted, setIsMounted] = useState(false);
   const { theme, setTheme } = useTheme();
   const [visible, setVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
   const [sheetOpen, setSheetOpen] = useState(false);
+  
+  // Use ref instead of state for scroll tracking
+  const lastScrollYRef = useRef(0);
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
+  // Memoize the theme toggle function to prevent re-renders
+  const toggleTheme = useCallback(() => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  }, [theme, setTheme]);
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       
-      if (currentScrollY > lastScrollY) {
+      if (currentScrollY > lastScrollYRef.current && visible) {
         setVisible(false);
-      } else {
+      } else if (currentScrollY <= lastScrollYRef.current && !visible) {
         setVisible(true);
       }
       
-      setLastScrollY(currentScrollY);
+      lastScrollYRef.current = currentScrollY;
     };
     
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, [visible]); // Only depend on visible state
 
   // Force re-render when pathname changes
   useEffect(() => {
@@ -131,7 +138,7 @@ const Navigation = () => {
         <Button
           variant="ghost"
           size="icon"
-          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+          onClick={toggleTheme}
           aria-label="Toggle theme"
           className="fixed bottom-6 right-6 z-50 rounded-full w-12 h-12 flex items-center justify-center bg-background shadow-lg hover:shadow-xl transition-all border border-border"
         >
