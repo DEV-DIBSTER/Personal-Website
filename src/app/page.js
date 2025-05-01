@@ -33,14 +33,12 @@ export default function Home() {
 
       <section className="py-0 md:py-0 relative">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="relative flex items-center justify-center overflow-hidden rounded-lg border-0 bg-background px-4 py-24 md:py-32 h-[600px] md:h-[800px] lg:h-[1000px]">
+          <div className="relative flex items-center justify-center overflow-hidden rounded-lg border-0 bg-transparent px-4 py-24 md:py-32 h-[600px] md:h-[800px] lg:h-[1000px]">
             <Globe className="absolute inset-0 m-auto scale-125 md:scale-150" />
-            <div className="pointer-events-none absolute inset-0 h-full bg-[radial-gradient(circle_at_50%_200%,rgba(0,0,0,0.2),rgba(255,255,255,0))]" />
           </div>
         </div>
       </section>
 
-      {/* About section */}
       <section className="py-12 md:py-16">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">

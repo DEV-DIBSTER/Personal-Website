@@ -2,10 +2,11 @@
 
 import createGlobe from "cobe";
 import { useCallback, useEffect, useRef, useState } from "react"
+import { useTheme } from "next-themes";
 
 import { cn } from "@/lib/utils"
 
-const GLOBE_CONFIG = {
+const DARK_MODE_CONFIG = {
   width: 800,
   height: 800,
   onRender: () => {},
@@ -17,20 +18,27 @@ const GLOBE_CONFIG = {
   mapSamples: 16000,
   mapBrightness: 1.2,
   baseColor: [1, 1, 1],
-  //markerColor: [30 / 255, 144 / 255, 255 / 255],
   markerColor: [1, 1, 1],
   glowColor: [87 / 255, 88 / 255, 87 / 255],
   markers: [
-  { location: [39.9625, -83.0032], size: 0.05 }, // Columbus, Ohio
-  { location: [43.651070, -79.347015], size: 0.05 }, // Toronto, Canada
-  { location: [53.546124, -113.493823], size: 0.05 }, // Edmonton, Canada
-  { location: [23.810331, 90.412521], size: 0.05 } // Dhaka, Bangladesh
+    { location: [39.9625, -83.0032], size: 0.05 }, // Columbus, Ohio
+    { location: [43.651070, -79.347015], size: 0.05 }, // Toronto, Canada
+    { location: [53.546124, -113.493823], size: 0.05 }, // Edmonton, Canada
+    { location: [23.810331, 90.412521], size: 0.05 } // Dhaka, Bangladesh
   ],
+}
+
+const LIGHT_MODE_CONFIG = {
+  ...DARK_MODE_CONFIG,
+  dark: 0,
+  baseColor: [1, 1, 1],  // Black dots/blocks
+  glowColor: [220 / 255, 220 / 255, 220 / 255],  // Black glow
+  markerColor: [1 / 255, 1 / 255, 1 / 255], // Neon blue locations
 }
 
 export function Globe({
   className,
-  config = GLOBE_CONFIG
+  config
 }) {
   let phi = 0
   let width = 0
@@ -38,6 +46,13 @@ export function Globe({
   const pointerInteracting = useRef(null)
   const pointerInteractionMovement = useRef(0)
   const [r, setR] = useState(0)
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // Set mounted to true when component mounts
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const updatePointerInteraction = (value) => {
     pointerInteracting.current = value
@@ -68,11 +83,16 @@ export function Globe({
   }
 
   useEffect(() => {
+    if (!mounted) return;
+    
     window.addEventListener("resize", onResize)
     onResize()
 
+    const themeConfig = theme === 'light' ? LIGHT_MODE_CONFIG : DARK_MODE_CONFIG;
+    const finalConfig = config ? { ...themeConfig, ...config } : themeConfig;
+
     const globe = createGlobe(canvasRef.current, {
-      ...config,
+      ...finalConfig,
       width: width * 2,
       height: width * 2,
       onRender,
@@ -80,7 +100,9 @@ export function Globe({
 
     setTimeout(() => (canvasRef.current.style.opacity = "1"))
     return () => globe.destroy();
-  }, [])
+  }, [theme, mounted, config, onRender])
+
+  if (!mounted) return null;
 
   return (
     <div
