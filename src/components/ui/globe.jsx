@@ -17,13 +17,14 @@ const GLOBE_CONFIG = {
   mapSamples: 16000,
   mapBrightness: 1.2,
   baseColor: [1, 1, 1],
-  markerColor: [30 / 255, 144 / 255, 255 / 255],
+  //markerColor: [30 / 255, 144 / 255, 255 / 255],
+  markerColor: [1, 1, 1],
   glowColor: [87 / 255, 88 / 255, 87 / 255],
   markers: [
-  { location: [39.9625, -83.0032], size: 0.07 }, // Columbus, Ohio
-  { location: [43.651070, -79.347015], size: 0.07 }, // Toronto, Canada
-  { location: [53.546124, -113.493823], size: 0.07 }, // Edmonton, Canada
-  { location: [23.810331, 90.412521], size: 0.07 } // Dhaka, Bangladesh
+  { location: [39.9625, -83.0032], size: 0.05 }, // Columbus, Ohio
+  { location: [43.651070, -79.347015], size: 0.05 }, // Toronto, Canada
+  { location: [53.546124, -113.493823], size: 0.05 }, // Edmonton, Canada
+  { location: [23.810331, 90.412521], size: 0.05 } // Dhaka, Bangladesh
   ],
 }
 

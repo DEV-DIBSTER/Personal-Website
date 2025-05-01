@@ -6,7 +6,7 @@ import { Globe } from "@/components/ui/globe";
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
-      <section className="py-20 md:py-28">
+      <section className="py-0 md:py-28">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center space-y-4 text-center">
             <div className="space-y-2">
@@ -31,10 +31,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-12 md:py-16 relative">
+      <section className="py-0 md:py-0 relative">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="relative flex items-center justify-center overflow-hidden rounded-lg border bg-background px-4 py-24 md:py-32 h-[600px]">
-            <Globe className="absolute inset-0 m-auto" />
+          <div className="relative flex items-center justify-center overflow-hidden rounded-lg border-0 bg-background px-4 py-24 md:py-32 h-[600px] md:h-[800px] lg:h-[1000px]">
+            <Globe className="absolute inset-0 m-auto scale-125 md:scale-150" />
             <div className="pointer-events-none absolute inset-0 h-full bg-[radial-gradient(circle_at_50%_200%,rgba(0,0,0,0.2),rgba(255,255,255,0))]" />
           </div>
         </div>
