@@ -43,7 +43,7 @@ export default function CertificationsPage() {
               <div className="flex flex-col h-full">
                 <div className="mb-4">
                   <h3 className="text-lg font-semibold mb-1">
-                    <Link href={cert.link} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                    <Link href={cert.link} target="_blank" rel="noopener noreferrer" className="hover:no-underline">
                       {cert.name}
                     </Link>
                   </h3>
