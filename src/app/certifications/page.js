@@ -20,6 +20,12 @@ const certifications = [
     year: 2025,
   },
   {
+    name: "CompTIA Tech+",
+    issuer: "CompTIA",
+    link: "https://www.credly.com/badges/a9104b7f-18d8-425d-933a-00f1bef44f0a/public_url",
+    year: 2025,
+  },
+  {
     name: "Google Cybersecurity Cert",
     issuer: "Google/Coursera",
     link: "https://www.credly.com/badges/d9546bb9-b54b-4f76-a723-83c574855ea1/public_url",
