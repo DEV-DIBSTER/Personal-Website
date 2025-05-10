@@ -1,6 +1,6 @@
 # Personal Portfolio Site:
 
-This is my personal portfolio site, built with Shadcn and NextJS.
+This is my personal portfolio site, built with Shadcn and NextJS. Deployed on Cloudflare Pages.
 
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
