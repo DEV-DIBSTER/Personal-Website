@@ -22,9 +22,6 @@ const Footer = () => {
               <Link href="https://twitter.com/DEV_DIBSTER" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
                 <Twitter className="h-5 w-5 text-muted-foreground hover:text-foreground transition-colors" />
               </Link>
-              <Link href="https://linkedin.com/in/adibsalam" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <Linkedin className="h-5 w-5 text-muted-foreground hover:text-foreground transition-colors" />
-              </Link>
               <Link href="mailto:me@dibster.dev" aria-label="Email">
                 <Mail className="h-5 w-5 text-muted-foreground hover:text-foreground transition-colors" />
               </Link>
