@@ -16,6 +16,13 @@
       "matchUpdateTypes": ["major"],
       "groupName": null,
       "assigneesFromCodeOwners": true
+    },
+    {
+      "matchPackageNames": ["lucide-react"],
+      "matchCurrentVersion": "^0\\.",
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true,
+      "automergeType": "branch" 
     }
   ]
 }
