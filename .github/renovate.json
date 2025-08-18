@@ -8,6 +8,7 @@
       "groupName": "all minor and patch dependencies",
       "groupSlug": "all-minor-patch",
       "matchPackagePatterns": ["*"],
+      "excludePackageNames": ["lucide-react"],
       "matchUpdateTypes": ["minor", "patch"],
       "assigneesFromCodeOwners": true
     },
@@ -22,7 +23,7 @@
       "matchCurrentVersion": "^0\\.",
       "matchUpdateTypes": ["minor", "patch"],
       "automerge": true,
-      "automergeType": "branch" 
+      "automergeType": "branch"
     }
   ]
 }
