@@ -1,29 +1,45 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "rangeStrategy": "bump",
-  "separateMajorMinor": true,
-  "separateMinorPatch": false,
-  "packageRules": [
-    {
-      "groupName": "all minor and patch dependencies",
-      "groupSlug": "all-minor-patch",
-      "matchPackagePatterns": ["*"],
-      "excludePackageNames": ["lucide-react"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "assigneesFromCodeOwners": true
-    },
-    {
-      "matchPackagePatterns": ["*"],
-      "matchUpdateTypes": ["major"],
-      "groupName": null,
-      "assigneesFromCodeOwners": true
-    },
-    {
-      "matchPackageNames": ["lucide-react"],
-      "matchCurrentVersion": "^0\\.",
-      "matchUpdateTypes": ["minor", "patch"],
-      "automerge": true,
-      "automergeType": "branch"
-    }
-  ]
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "rangeStrategy": "bump",
+    "separateMajorMinor": true,
+    "separateMinorPatch": false,
+    "packageRules": [
+        {
+            "groupName": "all minor and patch dependencies",
+            "groupSlug": "all-minor-patch",
+            "matchPackagePatterns": [
+                "*"
+            ],
+            "excludePackageNames": [
+                "lucide-react"
+            ],
+            "matchUpdateTypes": [
+                "minor",
+                "patch"
+            ],
+            "assigneesFromCodeOwners": true
+        },
+        {
+            "matchPackagePatterns": [
+                "*"
+            ],
+            "matchUpdateTypes": [
+                "major"
+            ],
+            "groupName": null,
+            "assigneesFromCodeOwners": true
+        },
+        {
+            "matchPackageNames": [
+                "lucide-react"
+            ],
+            "matchCurrentVersion": "^0\\.",
+            "matchUpdateTypes": [
+                "minor",
+                "patch"
+            ],
+            "automerge": true,
+            "platformAutomerge": true
+        }
+    ]
 }
