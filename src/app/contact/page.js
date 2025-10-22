@@ -109,15 +109,6 @@ export default function ContactPage() {
                 >
                   <Twitter className="h-5 w-5" />
                 </Link>
-                <Link 
-                  href="https://linkedin.com/in/adibsalam" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="p-2 rounded-full bg-muted hover:bg-muted/80 transition-colors"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="h-5 w-5" />
-                </Link>
               </div>
             </div>
           </CardContent>
