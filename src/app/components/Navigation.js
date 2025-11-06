@@ -52,7 +52,8 @@ const MainNavBar = memo(({ pathname }) => {
     { name: "Home", url: "/", icon: Home },
     { name: "Projects", url: "/projects", icon: Code },
     { name: "Contact", url: "/contact", icon: Mail },
-    { name: "Certifications", url: "/certifications", icon: Code }
+    { name: "Certifications", url: "/certifications", icon: Code },
+    { name: "Blog", url: "/blog", icon: Code },
   ], []);
 
   const isActivePath = useCallback((path) => {
@@ -84,7 +85,8 @@ const MobileNavigation = memo(({ pathname, sheetOpen, setSheetOpen }) => {
     { name: "Home", url: "/", icon: Home },
     { name: "Projects", url: "/projects", icon: Code },
     { name: "Contact", url: "/contact", icon: Mail },
-    { name: "Certifications", url: "/certifications", icon: Code }
+    { name: "Certifications", url: "/certifications", icon: Code },
+    { name: "Blog", url: "/blog", icon: Code }
   ], []);
 
   const isActivePath = useCallback((path) => {
