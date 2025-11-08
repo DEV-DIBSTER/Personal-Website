@@ -1,20 +1,22 @@
-// Adapted from shadcn/ui: https://ui.shadcn.com/docs/components/toast
+// Adapted from shadcn/ui: https://ui.shadcn.com/docs/components/toast.
 "use client";
 
-import { useState, createContext, useContext } from "react";
+import { useState, createContext, useContext, useRef } from "react";
 
 const ToastContext = createContext({});
 
 export function ToastProvider({ children }) {
   const [toasts, setToasts] = useState([]);
+  const idCounterRef = useRef(0);
 
   const toast = ({ title, description }) => {
-    const id = Math.random().toString(36).substring(2, 9);
+    // Use a counter instead of Math.random() to avoid hydration mismatch.
+    const id = `toast-${idCounterRef.current++}`;
     const newToast = { id, title, description };
     
     setToasts((prevToasts) => [...prevToasts, newToast]);
     
-    // Auto dismiss after 5 seconds
+    // Auto dismiss after 5 seconds.
     setTimeout(() => {
       setToasts((prevToasts) => prevToasts.filter((toast) => toast.id !== id));
     }, 5000);
