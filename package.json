@@ -22,7 +22,7 @@
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
     "cobe": "^0.6.5",
-    "framer-motion": "^12.31.2",
+    "framer-motion": "^12.31.3",
     "geist": "^1.5.1",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.563.0",
