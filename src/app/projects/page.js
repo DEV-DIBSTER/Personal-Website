@@ -2,7 +2,8 @@ import Link from "next/link";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Github, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
+import { SiGithub } from "@icons-pack/react-simple-icons";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export const metadata = {
@@ -181,7 +182,7 @@ function ProjectCard({ project }) {
       <CardFooter className="flex justify-between">
         <Button variant="outline" size="sm" asChild>
           <Link href={project.github} target="_blank" rel="noopener noreferrer">
-            <Github className="mr-2 h-4 w-4" /> GitHub
+            <SiGithub className="mr-2 h-4 w-4" /> GitHub
           </Link>
         </Button>
         <Button size="sm" asChild>

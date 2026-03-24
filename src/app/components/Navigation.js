@@ -14,6 +14,14 @@ import {
   SheetTitle,
   SheetDescription } from "@/components/ui/sheet";
 
+const NAV_ITEMS = [
+  { name: "Home", url: "/", icon: Home },
+  { name: "Projects", url: "/projects", icon: Code },
+  { name: "Contact", url: "/contact", icon: Mail },
+  { name: "Certifications", url: "/certifications", icon: Code },
+  { name: "Blog", url: "/blog", icon: Code },
+];
+
 const ThemeToggleButton = memo(() => {
   const [isMounted, setIsMounted] = useState(false);
   const { theme, setTheme } = useTheme();
@@ -48,27 +56,17 @@ const ThemeToggleButton = memo(() => {
 ThemeToggleButton.displayName = 'ThemeToggleButton';
 
 const MainNavBar = memo(({ pathname }) => {
-  const navItems = useCallback(() => [
-    { name: "Home", url: "/", icon: Home },
-    { name: "Projects", url: "/projects", icon: Code },
-    { name: "Contact", url: "/contact", icon: Mail },
-    { name: "Certifications", url: "/certifications", icon: Code },
-    { name: "Blog", url: "/blog", icon: Code },
-  ], []);
-
   const isActivePath = useCallback((path) => {
-    if (path === "/") {
-      return pathname === "/";
-    }
+    if (path === "/") return pathname === "/";
     return pathname === path || pathname.startsWith(`${path}/`);
   }, [pathname]);
 
   const processedNavItems = useCallback(() => 
-    navItems().map(item => ({
+    NAV_ITEMS.map(item => ({
       ...item,
       active: isActivePath(item.url)
     })), 
-  [navItems, isActivePath]);
+  [isActivePath]);
 
   return (
     <NavBar 
@@ -81,18 +79,8 @@ const MainNavBar = memo(({ pathname }) => {
 MainNavBar.displayName = 'MainNavBar';
 
 const MobileNavigation = memo(({ pathname, sheetOpen, setSheetOpen }) => {
-  const navItems = useCallback(() => [
-    { name: "Home", url: "/", icon: Home },
-    { name: "Projects", url: "/projects", icon: Code },
-    { name: "Contact", url: "/contact", icon: Mail },
-    { name: "Certifications", url: "/certifications", icon: Code },
-    { name: "Blog", url: "/blog", icon: Code }
-  ], []);
-
   const isActivePath = useCallback((path) => {
-    if (path === "/") {
-      return pathname === "/";
-    }
+    if (path === "/") return pathname === "/";
     return pathname === path || pathname.startsWith(`${path}/`);
   }, [pathname]);
 
@@ -123,7 +111,7 @@ const MobileNavigation = memo(({ pathname, sheetOpen, setSheetOpen }) => {
               </SheetDescription>
             </div>
             <div className="flex flex-col px-8 py-6 space-y-8 mt-4">
-              {navItems().map((item, idx) => (
+              {NAV_ITEMS.map((item, idx) => (
                 <Link
                   key={item.url}
                   href={item.url}

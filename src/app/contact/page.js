@@ -6,7 +6,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import { Mail, Phone, MapPin, Github, Twitter, Linkedin } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
+import { SiGithub, SiX } from "@icons-pack/react-simple-icons";
 import Link from "next/link";
 import { useToast } from "@/components/ui/use-toast";
 
@@ -98,7 +99,7 @@ export default function ContactPage() {
                   className="p-2 rounded-full bg-muted hover:bg-muted/80 transition-colors"
                   aria-label="GitHub"
                 >
-                  <Github className="h-5 w-5" />
+                  <SiGithub className="h-5 w-5" />
                 </Link>
                 <Link 
                   href="https://twitter.com/DEV_DIBSTER" 
@@ -107,7 +108,7 @@ export default function ContactPage() {
                   className="p-2 rounded-full bg-muted hover:bg-muted/80 transition-colors"
                   aria-label="Twitter"
                 >
-                  <Twitter className="h-5 w-5" />
+                  <SiX className="h-5 w-5" />
                 </Link>
               </div>
             </div>
