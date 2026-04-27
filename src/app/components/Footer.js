@@ -1,17 +1,43 @@
 import Link from "next/link";
 
+const FOOTER_LINKS = [
+  { name: "Home", href: "/" },
+  { name: "Projects", href: "/projects" },
+  { name: "Certifications", href: "/certifications" },
+  { name: "Blog", href: "/blog" },
+  { name: "Contact", href: "/contact" },
+  { name: "Sitemap", href: "/sitemap" },
+  { name: "Sitemap XML", href: "/sitemap.xml" },
+];
+
 const Footer = () => {
   return (
     <footer className="border-t bg-background">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
           <div className="max-w-md">
             <h3 className="text-lg font-semibold mb-4">DIBSTER</h3>
             <p className="text-muted-foreground">
               Full-stack developer passionate about creating elegant solutions to complex problems.
             </p>
           </div>
-          
+
+          <div className="max-w-md">
+            <h3 className="text-lg font-semibold mb-4">Links</h3>
+            <ul className="grid grid-cols-2 gap-x-6 gap-y-2 text-sm">
+              {FOOTER_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           <div className="max-w-md">
             <h3 className="text-lg font-semibold mb-4">Connect</h3>
             <div className="flex space-x-4">
