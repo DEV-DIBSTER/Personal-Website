@@ -5,93 +5,23 @@ import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
 import { SiGithub } from "@icons-pack/react-simple-icons";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { ProjectImage } from "./ProjectImage";
 
 export const metadata = {
-  description: "Explore my portfolio including BlueFoxHost, BrawlTools, Brawlify CDN, DanBot Hosting, and Pterodactyl Systems projects.",
+  description: "Explore the projects I've been working on and building.",
 };
 
 export default function ProjectsPage() {
   const projects = [
     {
-      title: "BlueFoxHost",
-      description: "A hosting service focused on reliable and affordable solutions",
-      longDescription: "BlueFoxHost provides reliable and affordable hosting solutions with efficient customer service. I'm actively involved with this organization, contributing to its technical infrastructure and development.",
-      tags: ["Hosting", "Infrastructure", "Customer Service", "Web Services"],
+      title: "Desert Storm",
+      description: "A unified dashboard for hosting companies to manage Pterodactyl, VirtFusion, Paymenter, Discord, and more.",
+      longDescription: "Desert Storm, custom built at DanBot Hosting, now operating at several hosting companies is a unified dashboard that allows you to manage Pterodactyl, VirtFusion, Paymenter, Discord, and more. It is built with Shadcn, Tailwind, Next.js, and Bun for performance and scalability. Paired with Titan Halo, it is a one stop solution for hosting companies to manage their customers and servers.",
+      tags: ["Pterodactyl", "VirtFusion", "Paymenter", "Discord", "Titan Halo"],
       category: "web",
-      image: "/projects/bluefoxhost.png",
-      github: "https://github.com/BlueFoxHost",
-      demo: "https://bluefoxhost.com",
+      github: "#",
+      demo: "#",
     },
-    {
-      title: "BrawlTools",
-      description: "Tools and utilities for the Brawl Stars ecosystem",
-      longDescription: "BrawlTools is a collection of tools and utilities designed for the Brawl Stars ecosystem, helping players and developers manage and enhance Brawl Stars-related content and gameplay data.",
-      tags: ["Brawl Stars", "Game Tools", "Data Management", "API"],
-      category: "tools",
-      image: "/projects/brawltools.png",
-      github: "https://github.com/BrawlTools1",
-      demo: "https://brawltools.net",
-    },
-    {
-      title: "Brawlify CDN",
-      description: "Content Delivery Network for Brawl Stars assets",
-      longDescription: "Brawlify CDN (BrawlCDN) is a Content Delivery Network for Brawl Stars assets, providing resources like in-game files, official fan kit materials, and social media content. Distributed under the Apache-2.0 license and not officially affiliated with Supercell.",
-      tags: ["CDN", "Brawl Stars", "Content Delivery", "Apache-2.0"],
-      category: "web",
-      image: "/projects/brawlify.png",
-      github: "https://github.com/Bralify/BrawlCDN",
-      demo: "https://cdn.brawlify.com",
-    },
-    {
-      title: "DanBot Hosting",
-      description: "Hosting service integrated with Pterodactyl Systems",
-      longDescription: "DanBot Hosting is a hosting service that integrates with Pterodactyl Systems, an open-source game server management panel. I contribute to its Discord bot ecosystem and hosting infrastructure, including the DanBotHostingStats bot that integrates with the Pterodactyl API.",
-      tags: ["Hosting", "Discord Bot", "Pterodactyl", "Game Servers"],
-      category: "web",
-      image: "/projects/danbot-hosting-banner.webp",
-      github: "https://github.com/DanBot-Hosting",
-      demo: "https://danbot.host",
-    },
-    {
-      title: "DanBot Hosting - Pterodactyl Eggs",
-      description: "Open-source game server management platform",
-      longDescription: "Pterodactyl Systems is the underlying platform used by DanBot Hosting. My involvement includes leveraging and customizing this system for hosting purposes, particularly in connection with the DanBotHostingStats bot and other hosting infrastructure projects.",
-      tags: ["Game Servers", "Server Management", "Open Source", "Infrastructure"],
-      category: "tools",
-      image: "/projects/danbot-hosting-banner.webp",
-      github: "https://github.com/DanBot-Hosting/Pterodactyl-Eggs",
-      demo: "https://danbot.host",
-    },
-    {
-      title: "DanBotHostingStats",
-      description: "Discord bot for Pterodactyl API integration",
-      longDescription: "DanBotHostingStats is a Discord bot designed to integrate with the Pterodactyl API. It provides real-time information about server status, uptime, and other metrics, enhancing the user experience on Discord.",
-      tags: ["Discord Bot", "Pterodactyl API", "Server Monitoring" , "Infrastructure"],
-      category: "web",
-      image: "/projects/danbot-hosting-banner.webp",
-      github: "https://github.com/DanBot-Hosting/DanBotHostingStats",
-      demo: "https://discord.com/users/640161047671603205"
-    },
-    {
-      title: "DanBot Hosting - Discord Bot",
-      description: "Next iteration of DanBotHostingStats, built from the ground up.",
-      longDescription: "DanBotHostingStats is a Discord bot designed to integrate with the Pterodactyl API. It provides real-time information about server status, uptime, and other metrics, enhancing the user experience on Discord.",
-      tags: ["Discord Bot", "Pterodactyl API", "Server Monitoring" , "Infrastructure"],
-      category: "web",
-      image: "/projects/danbot-hosting-banner.webp",
-      github: "https://github.com/DanBot-Hosting/Discord-Bot",
-      demo: "https://discord.com/users/640161047671603205"
-    },
-    {
-      title: "FBI Modern Vault Design",
-      description: "Modernized design for the FBI Vault Site.",
-      longDescription: "This project reimagines the FBI's Vault website with a modern, user-friendly interface. I created this concept to demonstrate how government archives could be more accessible through contemporary design principles. Built with Next.js and Shadcn UI components, the site features improved navigation, responsive layouts, and enhanced readability while maintaining the authoritative feel appropriate for federal resources. The redesign focuses on making declassified documents and historical records more discoverable for researchers, journalists, and the general public.",
-      tags: ["Webdesign", "Website", "Shadcn" , "Infrastructure"],
-      category: "web",
-      image: "/projects/danbot-hosting-banner.webp",
-      github: "https://github.com/DEV-DIBSTER",
-      demo: "https://concept-modern-fbi-site.vercel.app/"
-    }
   ];
 
   return (
@@ -157,13 +87,7 @@ function ProjectCard({ project }) {
   return (
     <Card className="overflow-hidden flex flex-col h-full">
       <div className="aspect-video relative bg-muted">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-muted flex items-center justify-center">
-          <img 
-            src={project.image} 
-            alt={project.title} 
-            className="object-contain h-full w-full p-4" 
-          />
-        </div>
+        <ProjectImage src={project.image} alt={project.title} />
       </div>
       <CardHeader>
         <CardTitle>{project.title}</CardTitle>

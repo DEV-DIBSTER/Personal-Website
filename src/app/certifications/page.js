@@ -8,6 +8,18 @@ import Link from "next/link";
 
 const certifications = [
   {
+    name: "CompTIA CSAP Security Analytics Professional",
+    issuer: "CompTIA",
+    link: "https://www.credly.com/badges/9bf722c8-2678-4671-9566-f60abb61b4bf/public_url",
+    year: 2026,
+  },
+  {
+    name: "CompTIA CySA+",
+    issuer: "CompTIA",
+    link: "https://www.credly.com/badges/14711a71-752a-400d-9457-09759eb386de/public_url",
+    year: 2026,
+  },
+  {
     name: "CompTIA Security+",
     issuer: "CompTIA",
     link: "https://www.credly.com/badges/e2e1388d-a791-445e-a62b-5a767cee01b9/public_url",
@@ -45,7 +57,7 @@ export default function CertificationsPage() {
       <div className="grid gap-y-6 gap-x-4 md:grid-cols-2 lg:grid-cols-3">
         {certifications.map((cert, idx) => (
           <div key={idx} className="flex justify-center">
-            <BackgroundGradient className="rounded-[22px] w-[320px] sm:w-[380px] p-4 sm:p-6 bg-white dark:bg-zinc-900">
+            <BackgroundGradient className="rounded-[22px] w-[320px] sm:w-[380px] p-4 sm:p-6 bg-white dark:bg-zinc-900 h-full">
               <div className="flex flex-col h-full">
                 <div className="mb-4">
                   <h3 className="text-lg font-semibold mb-1">

@@ -1,53 +1,44 @@
-"use client";
-
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import fs from "node:fs/promises";
+import path from "node:path";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, KeyRound } from "lucide-react";
 import { SiGithub, SiX } from "@icons-pack/react-simple-icons";
 import Link from "next/link";
-import { useToast } from "@/components/ui/use-toast";
+import PgpKeyBlock from "./pgp-key-block";
 
-export default function ContactPage() {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+async function loadPgpKeys() {
+  const pgpDir = path.join(process.cwd(), "public", "pgp");
+  let fileNames = [];
+  try {
+    fileNames = await fs.readdir(pgpDir);
+  } catch {
+    return [];
+  }
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+  const ascFiles = fileNames.filter((name) => name.toLowerCase().endsWith(".asc"));
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  const entries = await Promise.all(
+    ascFiles.map(async (fileName) => {
+      const filePath = path.join(pgpDir, fileName);
+      const publicKey = (await fs.readFile(filePath, "utf-8")).trim();
+      const baseName = fileName.replace(/\.asc$/i, "");
+      const looksLikeEmail = /.+@.+\..+/.test(baseName);
+      return {
+        id: baseName,
+        label: looksLikeEmail ? baseName : baseName.replace(/[._-]+/g, " "),
+        email: looksLikeEmail ? baseName : null,
+        fileName,
+        downloadUrl: `/pgp/${encodeURIComponent(fileName)}`,
+        publicKey,
+      };
+    })
+  );
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+  return entries.sort((a, b) => a.id.localeCompare(b.id));
+}
 
-    // Show success toast
-    toast({
-      title: "Message sent!",
-      description: "Thanks for reaching out. I'll get back to you soon.",
-    });
-
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
-    setIsSubmitting(false);
-  };
+export default async function ContactPage() {
+  const pgpKeys = await loadPgpKeys();
 
   return (
     <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
@@ -58,8 +49,8 @@ export default function ContactPage() {
         </p>
       </div>
 
-      <div className="flex justify-center">
-        <Card className="w-full max-w-2xl">
+      <div className="grid gap-6 lg:grid-cols-2 lg:items-start">
+        <Card className="w-full">
           <CardHeader>
             <CardTitle>Contact Information</CardTitle>
             <CardDescription>
@@ -71,39 +62,49 @@ export default function ContactPage() {
               <Mail className="h-5 w-5 mt-0.5 text-muted-foreground" />
               <div>
                 <h3 className="font-medium">Email</h3>
-                <p className="text-sm text-muted-foreground">me@dibster.dev</p>
+                <a
+                  href="mailto:me@dibster.dev"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  me@dibster.dev
+                </a>
               </div>
             </div>
             <div className="flex items-start space-x-4">
               <Phone className="h-5 w-5 mt-0.5 text-muted-foreground" />
               <div>
                 <h3 className="font-medium">Phone</h3>
-                <p className="text-sm text-muted-foreground">+1 (555) 123-4567</p>
+                <a
+                  href="tel:+15551234567"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  +1 (555) 123-4567
+                </a>
               </div>
             </div>
             <div className="flex items-start space-x-4">
               <MapPin className="h-5 w-5 mt-0.5 text-muted-foreground" />
               <div>
                 <h3 className="font-medium">Location</h3>
-                <p className="text-sm text-muted-foreground">Cornfield, Ohio</p>
+                <p className="text-sm text-muted-foreground">Middle of Nowhere, Ohio</p>
               </div>
             </div>
 
             <div className="pt-4 border-t">
               <h3 className="font-medium mb-4">Connect with Me:</h3>
               <div className="flex space-x-4">
-                <Link 
-                  href="https://github.com/DEV-DIBSTER" 
-                  target="_blank" 
+                <Link
+                  href="https://github.com/DEV-DIBSTER"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="p-2 rounded-full bg-muted hover:bg-muted/80 transition-colors"
                   aria-label="GitHub"
                 >
                   <SiGithub className="h-5 w-5" />
                 </Link>
-                <Link 
-                  href="https://twitter.com/DEV_DIBSTER" 
-                  target="_blank" 
+                <Link
+                  href="https://twitter.com/DEV_DIBSTER"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="p-2 rounded-full bg-muted hover:bg-muted/80 transition-colors"
                   aria-label="Twitter"
@@ -112,6 +113,35 @@ export default function ContactPage() {
                 </Link>
               </div>
             </div>
+          </CardContent>
+        </Card>
+
+        <Card className="w-full">
+          <CardHeader>
+            <div className="flex items-center gap-2">
+              <KeyRound className="h-5 w-5 text-muted-foreground" />
+              <CardTitle>PGP Keys</CardTitle>
+            </div>
+            <CardDescription>
+              Use these public keys to send me encrypted messages or verify
+              signed releases.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-6">
+            {pgpKeys.length === 0 ? (
+              <p className="text-sm text-muted-foreground">
+                No PGP keys published yet.
+              </p>
+            ) : (
+              pgpKeys.map((entry, index) => (
+                <div key={entry.id} className="space-y-6">
+                  <PgpKeyBlock entry={entry} />
+                  {index < pgpKeys.length - 1 ? (
+                    <div className="border-t" />
+                  ) : null}
+                </div>
+              ))
+            )}
           </CardContent>
         </Card>
       </div>
