@@ -34,18 +34,18 @@ import {
 } from "@icons-pack/react-simple-icons";
 
 const techStack = [
-  { label: "GitHub", Icon: SiGithub, color: "#181717" },
+  { label: "GitHub", Icon: SiGithub, color: "#FFFFFF" },
   { label: "Discord", Icon: SiDiscord, color: "#5865F2" },
   { label: "Tailwind", Icon: SiTailwindcss, color: "#06B6D4" },
-  { label: "Shadcn", Icon: SiShadcnui, color: "#000000" },
+  { label: "Shadcn", Icon: SiShadcnui, color: "#FFFFFF" },
   { label: "Lucide React", Icon: SiLucide, color: "#F56565" },
-  { label: "Next.js", Icon: SiNextdotjs, color: "#000000" },
+  { label: "Next.js", Icon: SiNextdotjs, color: "#FFFFFF" },
   { label: "Cloudflare", Icon: SiCloudflare, color: "#F38020" },
   { label: "WSL", Icon: SiLinux, color: "#FCC624" },
   { label: "Linux", Icon: SiLinux, color: "#FCC624" },
   { label: "JavaScript", Icon: SiJavascript, color: "#F7DF1E" },
   { label: "TypeScript", Icon: SiTypescript, color: "#3178C6" },
-  { label: "Rust", Icon: SiRust, color: "#000000" },
+  { label: "Rust", Icon: SiRust, color: "#F97316" },
   { label: "Go", Icon: SiGo, color: "#00ADD8" },
   { label: "MongoDB", Icon: SiMongodb, color: "#47A248" },
   { label: "Redis", Icon: SiRedis, color: "#DC382D" },
