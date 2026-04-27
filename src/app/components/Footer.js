@@ -18,7 +18,7 @@ const Footer = () => {
           <div className="max-w-md">
             <h3 className="text-lg font-semibold mb-4">DIBSTER</h3>
             <p className="text-muted-foreground">
-              Full-stack developer passionate about creating elegant solutions to complex problems.
+              Security Engineering Student building full stack applications, and securing internet through research.
             </p>
           </div>
 

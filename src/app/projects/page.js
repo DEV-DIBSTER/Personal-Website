@@ -35,7 +35,7 @@ export default function ProjectsPage() {
       <div className="flex flex-col items-center space-y-4 text-center mb-12">
         <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">My Projects</h1>
         <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-          A collection of my work, side projects, and experiments
+          A collection of my work, side projects, and experiments.
         </p>
       </div>
 
