@@ -171,7 +171,9 @@
     transform: translateX(0);
   }
   to {
-    transform: translateX(-50%);
+    /* Land exactly at the start of the duplicated set so the loop wraps
+       seamlessly: half-track + half-gap (matches the gap between sets). */
+    transform: translateX(calc(-50% - 0.5rem));
   }
 }
 
@@ -179,8 +181,7 @@
   display: flex;
   width: max-content;
   gap: 1rem;
-  padding-inline: 1.5rem;
-  animation: techMarquee 35s linear infinite;
+  animation: techMarquee 25s linear infinite;
   will-change: transform;
 }
 
