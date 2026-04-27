@@ -20,12 +20,58 @@ export default function ProjectsPage() {
       category: "web",
       image: "",
       github: "https://github.com/DIBSTER-Management/",
+    },
+    {
+      title: "Pterodactyl Discord Bot",
+      description: "A Discord bot that integrates with the Pterodactyl API for account and server management.",
+      longDescription: "This DanBot Hosting project provides Discord-based workflows for user creation, server provisioning, and ongoing Pterodactyl management. I maintain this project and continue supporting its improvements and reliability.",
+      tags: ["DanBot Hosting", "Pterodactyl", "Discord", "Automation", "Bot"],
+      category: "tools",
+      image: "",
+      github: "https://github.com/DanBot-Hosting/Pterodactyl-Discord-Bot",
       demo: "",
       urls: [
+        { label: "GitHub Repository", href: "https://github.com/DanBot-Hosting/Pterodactyl-Discord-Bot" },
       ],
       blogs: [
       ],
       otherItems: [
+      ],
+    },
+    {
+      title: "LocalCert Dashboard",
+      description: "The main dashboard and UI for creating and managing LocalCert subdomains.",
+      longDescription: "The LocalCert dashboard is the main interactive website for LocalCert subdomain management. I built the initial first iteration and design of this dashboard to establish the foundation for the user experience and interface direction.",
+      tags: ["Dashboard", "UI/UX", "LocalCert", "Web App"],
+      category: "web",
+      image: "",
+      github: "https://github.com/getlocalcert/dashboard",
+      demo: "",
+      urls: [
+        { label: "GitHub Repository", href: "https://github.com/getlocalcert/dashboard" },
+      ],
+      blogs: [
+      ],
+      otherItems: [
+      ],
+    },
+    {
+      title: "is-a.dev Register",
+      description: "A service that lets developers claim and manage .is-a.dev subdomains.",
+      longDescription: "The is-a.dev register repository powers the workflow for claiming sweet-looking .is-a.dev subdomains and maintaining related service processes. I maintain this project and help keep the registration flow reliable and contributor-friendly.",
+      tags: ["DNS", "Domains", "Open Source", "is-a.dev"],
+      category: "tools",
+      image: "",
+      github: "https://github.com/is-a-dev/register",
+      demo: "",
+      urls: [
+        { label: "GitHub Repository", href: "https://github.com/is-a-dev/register" },
+        { label: "Documentation", href: "https://docs.is-a.dev" },
+      ],
+      blogs: [
+      ],
+      otherItems: [
+        { label: "Discord Community", href: "https://discord.gg/is-a-dev-830872854677422150" },
       ],
     },
   ];
