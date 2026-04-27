@@ -34,33 +34,33 @@ import {
 } from "@icons-pack/react-simple-icons";
 
 const techStack = [
-  { label: "GitHub", Icon: SiGithub, color: "#FFFFFF" },
-  { label: "Discord", Icon: SiDiscord, color: "#5865F2" },
-  { label: "Tailwind", Icon: SiTailwindcss, color: "#06B6D4" },
-  { label: "Shadcn", Icon: SiShadcnui, color: "#FFFFFF" },
-  { label: "Lucide React", Icon: SiLucide, color: "#F56565" },
-  { label: "Next.js", Icon: SiNextdotjs, color: "#FFFFFF" },
-  { label: "Cloudflare", Icon: SiCloudflare, color: "#F38020" },
-  { label: "WSL", Icon: SiLinux, color: "#FCC624" },
-  { label: "Linux", Icon: SiLinux, color: "#FCC624" },
-  { label: "JavaScript", Icon: SiJavascript, color: "#F7DF1E" },
-  { label: "TypeScript", Icon: SiTypescript, color: "#3178C6" },
-  { label: "Rust", Icon: SiRust, color: "#F97316" },
-  { label: "Go", Icon: SiGo, color: "#00ADD8" },
-  { label: "MongoDB", Icon: SiMongodb, color: "#47A248" },
-  { label: "Redis", Icon: SiRedis, color: "#DC382D" },
-  { label: "Postgres", Icon: SiPostgresql, color: "#4169E1" },
-  { label: "NodeJS", Icon: SiNodedotjs, color: "#5FA04E" },
-  { label: "Bun", Icon: SiBun, color: "#FBF0DF" },
-  { label: "Claude", Icon: SiClaude, color: "#D97757" },
-  { label: "Cloudflare Workers", Icon: SiCloudflareworkers, color: "#F38020" },
-  { label: "Discord.js", Icon: SiDiscorddotjs, color: "#5865F2" },
-  { label: "Python", Icon: SiPython, color: "#3776AB" },
-  { label: "Java", Icon: SiOpenjdk, color: "#ED8B00" },
-  { label: "Figma", Icon: SiFigma, color: "#F24E1E" },
-  { label: "Sentry", Icon: SiSentry, color: "#362D59" },
-  { label: "Postman", Icon: SiPostman, color: "#FF6C37" },
-  { label: "Obsidian", Icon: SiObsidian, color: "#7C3AED" },
+  { label: "GitHub", Icon: SiGithub, lightColor: "#111827", darkColor: "#FFFFFF" },
+  { label: "Discord", Icon: SiDiscord, lightColor: "#5865F2", darkColor: "#7C88FF" },
+  { label: "Tailwind", Icon: SiTailwindcss, lightColor: "#06B6D4", darkColor: "#22D3EE" },
+  { label: "Shadcn", Icon: SiShadcnui, lightColor: "#111827", darkColor: "#FFFFFF" },
+  { label: "Lucide React", Icon: SiLucide, lightColor: "#E11D48", darkColor: "#FB7185" },
+  { label: "Next.js", Icon: SiNextdotjs, lightColor: "#111827", darkColor: "#FFFFFF" },
+  { label: "Cloudflare", Icon: SiCloudflare, lightColor: "#F38020", darkColor: "#FB923C" },
+  { label: "WSL", Icon: SiLinux, lightColor: "#000000", darkColor: "#FACC15" },
+  { label: "JavaScript", Icon: SiJavascript, lightColor: "#D4A100", darkColor: "#F7DF1E" },
+  { label: "TypeScript", Icon: SiTypescript, lightColor: "#3178C6", darkColor: "#60A5FA" },
+  { label: "Rust", Icon: SiRust, lightColor: "#EA580C", darkColor: "#FB923C" },
+  { label: "Go", Icon: SiGo, lightColor: "#0891B2", darkColor: "#22D3EE" },
+  { label: "Linux", Icon: SiLinux, lightColor: "#000000", darkColor: "#FACC15" },
+  { label: "MongoDB", Icon: SiMongodb, lightColor: "#16A34A", darkColor: "#4ADE80" },
+  { label: "Redis", Icon: SiRedis, lightColor: "#DC2626", darkColor: "#F87171" },
+  { label: "Postgres", Icon: SiPostgresql, lightColor: "#4169E1", darkColor: "#7C93FF" },
+  { label: "NodeJS", Icon: SiNodedotjs, lightColor: "#3F8A3A", darkColor: "#86EFAC" },
+  { label: "Bun", Icon: SiBun, lightColor: "#4B3F2F", darkColor: "#FBF0DF" },
+  { label: "Claude", Icon: SiClaude, lightColor: "#C2410C", darkColor: "#FB923C" },
+  { label: "Cloudflare Workers", Icon: SiCloudflareworkers, lightColor: "#F38020", darkColor: "#FB923C" },
+  { label: "Discord.js", Icon: SiDiscorddotjs, lightColor: "#4752C4", darkColor: "#7C88FF" },
+  { label: "Python", Icon: SiPython, lightColor: "#1D4ED8", darkColor: "#60A5FA" },
+  { label: "Java", Icon: SiOpenjdk, lightColor: "#EA580C", darkColor: "#FB923C" },
+  { label: "Figma", Icon: SiFigma, lightColor: "#F24E1E", darkColor: "#FB7185" },
+  { label: "Sentry", Icon: SiSentry, lightColor: "#312E81", darkColor: "#A78BFA" },
+  { label: "Postman", Icon: SiPostman, lightColor: "#EA580C", darkColor: "#FB923C" },
+  { label: "Obsidian", Icon: SiObsidian, lightColor: "#6D28D9", darkColor: "#A78BFA" },
 ];
 
 export default function Home() {
@@ -114,15 +114,15 @@ export default function Home() {
 
             <div className="relative mt-6 overflow-hidden py-6">
               <div className="tech-marquee-track">
-                {[...techStack, ...techStack].map(({ label, Icon, color }, index) => (
+                {[...techStack, ...techStack].map(({ label, Icon, lightColor, darkColor }, index) => (
                   <div
                     key={`${label}-${index}`}
                     className="group flex min-w-[110px] flex-col items-center gap-2 rounded-lg border border-border/90 bg-muted/40 px-4 py-3 shadow-sm transition-colors hover:bg-muted/70"
                   >
                     <Icon
                       aria-hidden
-                      className="h-8 w-8 transition-transform duration-300 group-hover:scale-110"
-                      color={color}
+                      className="h-8 w-8 transition-transform duration-300 group-hover:scale-110 [color:var(--icon-light)] dark:[color:var(--icon-dark)]"
+                      style={{ "--icon-light": lightColor, "--icon-dark": darkColor }}
                     />
                     <span className="text-xs text-muted-foreground">{label}</span>
                   </div>
