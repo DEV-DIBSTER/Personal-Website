@@ -165,3 +165,28 @@
 .fade-in-down {
   animation: fadeInDown 0.3s ease;
 }
+
+@keyframes techMarquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.tech-marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 1rem;
+  padding-inline: 1.5rem;
+  animation: techMarquee 35s linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tech-marquee-track {
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+  }
+}
