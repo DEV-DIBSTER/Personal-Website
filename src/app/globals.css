@@ -181,7 +181,7 @@
   display: flex;
   width: max-content;
   gap: 1rem;
-  animation: techMarquee 25s linear infinite;
+  animation: techMarquee 40s linear infinite;
   will-change: transform;
 }
 
