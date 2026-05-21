@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight } from "lucide-react";
-import { Globe } from "@/components/ui/globe";
 import {
   SiBun,
   SiClaude,
@@ -90,14 +89,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* <section className="py-0 md:py-28 relative">
-        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="relative flex items-center justify-center overflow-hidden rounded-lg border-0 bg-transparent px-4 py-24 md:py-32 h-[600px] md:h-[800px] lg:h-[1000px]">
-            <Globe className="absolute inset-0 m-auto scale-125 md:scale-150" />
-          </div>
-        </div>
-      </section> */}
 
       <section className="py-8 md:py-12">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
