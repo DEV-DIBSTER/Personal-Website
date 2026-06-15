@@ -7,7 +7,7 @@
         {
             "groupName": "all minor and patch dependencies",
             "groupSlug": "all-minor-patch",
-            "matchPackagePatterns": [
+            "matchPackageNames": [
                 "*"
             ],
             "excludePackageNames": [
@@ -20,7 +20,7 @@
             "assigneesFromCodeOwners": true
         },
         {
-            "matchPackagePatterns": [
+            "matchPackageNames": [
                 "*"
             ],
             "matchUpdateTypes": [
