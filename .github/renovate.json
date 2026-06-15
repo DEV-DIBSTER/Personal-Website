@@ -7,9 +7,6 @@
         {
             "groupName": "all minor and patch dependencies",
             "groupSlug": "all-minor-patch",
-            "matchPackageNames": [
-                "*"
-            ],
             "excludePackageNames": [
                 "lucide-react"
             ],
@@ -20,9 +17,6 @@
             "assigneesFromCodeOwners": true
         },
         {
-            "matchPackageNames": [
-                "*"
-            ],
             "matchUpdateTypes": [
                 "major"
             ],
