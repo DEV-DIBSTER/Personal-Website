@@ -27,7 +27,7 @@
             "matchPackageNames": [
                 "lucide-react"
             ],
-            "matchCurrentVersion": "^0\\.",
+            "matchCurrentVersion": "^1\\.",
             "matchUpdateTypes": [
                 "minor",
                 "patch"
