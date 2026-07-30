@@ -1,6 +1,7 @@
 import { Providers } from "./providers";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
+import Horsering from "./components/Horsering";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { ToastProvider } from "@/components/ui/use-toast";
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
             <Navigation />
             <main className="flex-1">{children}</main>
             <Footer />
+            <Horsering />
           </ToastProvider>
         </Providers>
       </body>
