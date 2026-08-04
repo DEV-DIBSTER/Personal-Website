@@ -107,7 +107,7 @@ The blog system works seamlessly with your existing Next.js deployment. Simply:
 
 ## Customization
 The blog system uses:
-- **gray-matter** for front matter parsing
+- a small local front-matter parser for YAML metadata
 - **remark** and **remark-html** for Markdown processing
 - **Tailwind CSS** for styling
 - **Next.js Image** for optimized images
