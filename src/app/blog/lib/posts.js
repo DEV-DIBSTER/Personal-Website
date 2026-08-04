@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import matter from 'gray-matter';
+import matter from './matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 import { visit } from 'unist-util-visit';
@@ -18,7 +18,6 @@ export function getSortedPostsData() {
     const fullPath = path.join(postsDirectory, fileName);
     const fileContents = fs.readFileSync(fullPath, 'utf8');
 
-    // Use gray-matter to parse the post metadata section.
     const matterResult = matter(fileContents);
 
     // Combine the data with the post ID.
@@ -86,7 +85,6 @@ export async function getPostData(id) {
   
   const fileContents = fs.readFileSync(fullPath, 'utf8');
 
-  // Use gray-matter to parse the post metadata section.
   const matterResult = matter(fileContents);
 
   // Use remark to convert markdown into HTML string with custom code block processing.
