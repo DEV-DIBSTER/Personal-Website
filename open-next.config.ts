@@ -3,5 +3,7 @@ import staticAssetsIncrementalCache from "@opennextjs/cloudflare/overrides/incre
 
 export default defineCloudflareConfig({
   incrementalCache: staticAssetsIncrementalCache,
-  enableCacheInterception: true,
+  // Off until OpenNext handles Next 16.3's prefetchInlining object.
+  // With interception on, segment prefetches always get full RSC and Links loop.
+  enableCacheInterception: false,
 });

@@ -93,12 +93,13 @@ export default function SitemapPage() {
         </p>
         <p className="text-sm text-muted-foreground">
           Looking for the machine-readable version? See{" "}
-          <Link
+          {/* Must be <a>: Link soft-nav to .xml returns non-RSC and loops */}
+          <a
             href="/sitemap.xml"
             className="text-primary underline-offset-4 hover:underline"
           >
             <code className="font-mono">/sitemap.xml</code>
-          </Link>
+          </a>
           .
         </p>
       </div>
@@ -113,39 +114,68 @@ export default function SitemapPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {PAGES.map((page) => {
             const Icon = page.icon;
+            const isCurrent = page.path === "/sitemap";
+            const card = (
+              <Card
+                className={`h-full transition-all duration-300 ${
+                  isCurrent
+                    ? "ring-1 ring-primary/40"
+                    : "hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-1"
+                }`}
+              >
+                <CardHeader>
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex items-center gap-3 min-w-0">
+                      <span
+                        aria-hidden="true"
+                        className="rounded-lg bg-primary/10 p-2 text-primary shrink-0"
+                      >
+                        <Icon className="h-5 w-5" />
+                      </span>
+                      <CardTitle
+                        className={`truncate leading-tight pb-0.5 transition-colors ${
+                          isCurrent ? "text-primary" : "group-hover:text-primary"
+                        }`}
+                      >
+                        {page.name}
+                      </CardTitle>
+                    </div>
+                    {!isCurrent ? (
+                      <ArrowRight
+                        aria-hidden="true"
+                        className="h-4 w-4 mt-2 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all shrink-0"
+                      />
+                    ) : null}
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription>{page.description}</CardDescription>
+                  <code className="mt-3 inline-block text-xs text-muted-foreground/80 font-mono">
+                    {page.path}
+                  </code>
+                </CardContent>
+              </Card>
+            );
+
+            if (isCurrent) {
+              return (
+                <div
+                  key={page.path}
+                  aria-current="page"
+                  className="rounded-xl"
+                >
+                  {card}
+                </div>
+              );
+            }
+
             return (
               <Link
                 key={page.path}
                 href={page.path}
                 className="group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-xl"
               >
-                <Card className="h-full hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 hover:-translate-y-1">
-                  <CardHeader>
-                    <div className="flex items-start justify-between gap-3">
-                      <div className="flex items-center gap-3 min-w-0">
-                        <span
-                          aria-hidden="true"
-                          className="rounded-lg bg-primary/10 p-2 text-primary shrink-0"
-                        >
-                          <Icon className="h-5 w-5" />
-                        </span>
-                        <CardTitle className="truncate leading-tight pb-0.5 group-hover:text-primary transition-colors">
-                          {page.name}
-                        </CardTitle>
-                      </div>
-                      <ArrowRight
-                        aria-hidden="true"
-                        className="h-4 w-4 mt-2 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all shrink-0"
-                      />
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription>{page.description}</CardDescription>
-                    <code className="mt-3 inline-block text-xs text-muted-foreground/80 font-mono">
-                      {page.path}
-                    </code>
-                  </CardContent>
-                </Card>
+                {card}
               </Link>
             );
           })}

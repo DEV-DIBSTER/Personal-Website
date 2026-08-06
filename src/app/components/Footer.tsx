@@ -7,7 +7,6 @@ const FOOTER_LINKS = [
   { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
   { name: "Sitemap", href: "/sitemap" },
-  { name: "Sitemap XML", href: "/sitemap.xml" },
 ] as const;
 
 const Footer = () => {
@@ -35,6 +34,15 @@ const Footer = () => {
                   </Link>
                 </li>
               ))}
+              <li>
+                {/* Must be <a>: Link soft-nav to .xml returns non-RSC and loops */}
+                <a
+                  href="/sitemap.xml"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Sitemap XML
+                </a>
+              </li>
             </ul>
           </div>
 
