@@ -38,8 +38,13 @@ This project uses Workers (not Pages). Worker name: `dibster-dev`.
 
 If you previously deployed via Cloudflare Pages, switch the Git integration to **Workers Builds**:
 
-- **Build command:** leave empty (or `npm run build` if you prefer an explicit Next build)
-- **Deploy command:** `npm run deploy`
+- **Build command:** `npx opennextjs-cloudflare build`
+- **Deploy command:** `npx wrangler deploy`
+- **Non-production branch deploy command:** `npx wrangler versions upload`
+- **Build variable:** `NEXT_PUBLIC_SITE_URL=https://dibster.dev`
+
+`NEXT_PUBLIC_SITE_URL` must be a *build* variable, not a runtime one — Next inlines `NEXT_PUBLIC_*`
+at build time. See [MIGRATION.md](./MIGRATION.md).
 
 Or deploy from your machine:
 

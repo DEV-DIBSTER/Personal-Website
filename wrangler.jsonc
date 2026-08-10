@@ -8,15 +8,11 @@
     "directory": ".open-next/assets",
     "binding": "ASSETS"
   },
-  "services": [
-    {
-      "binding": "WORKER_SELF_REFERENCE",
-      "service": "dibster-dev"
-    }
-  ],
   "images": {
     "binding": "IMAGES"
   },
+  "workers_dev": true,
+  "preview_urls": true,
   "observability": {
     "enabled": true
   }
