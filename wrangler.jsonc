@@ -11,6 +11,12 @@
   "images": {
     "binding": "IMAGES"
   },
+  "routes": [
+    {
+      "pattern": "dibster.dev",
+      "custom_domain": true
+    }
+  ],
   "workers_dev": true,
   "preview_urls": true,
   "observability": {

@@ -44,7 +44,7 @@ If you previously deployed via Cloudflare Pages, switch the Git integration to *
 - **Build variable:** `NEXT_PUBLIC_SITE_URL=https://dibster.dev`
 
 `NEXT_PUBLIC_SITE_URL` must be a *build* variable, not a runtime one — Next inlines `NEXT_PUBLIC_*`
-at build time. See [MIGRATION.md](./MIGRATION.md).
+at build time.
 
 Or deploy from your machine:
 
