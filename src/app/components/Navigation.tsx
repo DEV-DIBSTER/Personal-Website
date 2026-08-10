@@ -1,0 +1,220 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import {
+  useState,
+  useEffect,
+  useRef,
+  useCallback,
+  memo,
+  type Dispatch,
+  type SetStateAction,
+} from "react";
+import {
+  Moon,
+  Sun,
+  Home,
+  Code,
+  Mail,
+  Menu,
+  X,
+  Award,
+  BookOpen,
+} from "lucide-react";
+import { useTheme } from "next-themes";
+import { Button } from "@/components/ui/button";
+import { NavBar, type NavItem } from "@/components/ui/tubelight-navbar";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetTitle,
+  SheetDescription,
+} from "@/components/ui/sheet";
+import { cn } from "@/lib/utils";
+
+const NAV_ITEMS: NavItem[] = [
+  { name: "Home", url: "/", icon: Home },
+  { name: "Projects", url: "/projects", icon: Code },
+  { name: "Contact", url: "/contact", icon: Mail },
+  { name: "Certifications", url: "/certifications", icon: Award },
+  { name: "Blog", url: "/blog", icon: BookOpen },
+];
+
+const ThemeToggleButton = memo(() => {
+  const [isMounted, setIsMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  const toggleTheme = useCallback(() => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  }, [theme, setTheme]);
+
+  if (!isMounted) return null;
+
+  return (
+    <Button
+      variant="ghost"
+      size="icon"
+      onClick={toggleTheme}
+      aria-label="Toggle theme"
+      className="fixed bottom-6 right-6 z-50 rounded-full w-12 h-12 flex items-center justify-center bg-background shadow-lg hover:shadow-xl transition-all border border-border"
+    >
+      {theme === "dark" ? (
+        <Sun className="h-5 w-5" />
+      ) : (
+        <Moon className="h-5 w-5" />
+      )}
+    </Button>
+  );
+});
+
+ThemeToggleButton.displayName = "ThemeToggleButton";
+
+type MainNavBarProps = {
+  pathname: string;
+};
+
+const MainNavBar = memo(({ pathname }: MainNavBarProps) => {
+  const isActivePath = useCallback(
+    (path: string) => {
+      if (path === "/") return pathname === "/";
+      return pathname === path || pathname.startsWith(`${path}/`);
+    },
+    [pathname]
+  );
+
+  const processedNavItems = useCallback(
+    () =>
+      NAV_ITEMS.map((item) => ({
+        ...item,
+        active: isActivePath(item.url),
+      })),
+    [isActivePath]
+  );
+
+  return <NavBar items={processedNavItems()} className="hidden md:block" />;
+});
+
+MainNavBar.displayName = "MainNavBar";
+
+type MobileNavigationProps = {
+  pathname: string;
+  sheetOpen: boolean;
+  setSheetOpen: Dispatch<SetStateAction<boolean>>;
+};
+
+const MobileNavigation = memo(
+  ({ pathname, sheetOpen, setSheetOpen }: MobileNavigationProps) => {
+    const isActivePath = useCallback(
+      (path: string) => {
+        if (path === "/") return pathname === "/";
+        return pathname === path || pathname.startsWith(`${path}/`);
+      },
+      [pathname]
+    );
+
+    return (
+      <div className="absolute right-4 md:hidden">
+        <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
+          <SheetTrigger asChild>
+            <Button variant="ghost" size="icon" className="mt-4 ml-7">
+              <Menu className="h-5 w-5" />
+            </Button>
+          </SheetTrigger>
+          <SheetContent
+            side="left"
+            className="!w-screen !max-w-none h-screen border-none p-0 bg-background/95 backdrop-blur-lg animate-fadeDownFast transition-none duration-200 [&>button:last-child]:hidden"
+          >
+            <button
+              onClick={() => setSheetOpen(false)}
+              aria-label="Close navigation"
+              className={`fixed top-2 right-4 z-50 rounded-full p-2 hover:bg-muted transition ${sheetOpen ? "fade-in-down" : ""}`}
+              type="button"
+            >
+              <X className="h-6 w-6" />
+            </button>
+            <div className="flex flex-col h-full bg-background/95">
+              <div className="px-8 pt-6">
+                <SheetTitle></SheetTitle>
+                <SheetDescription></SheetDescription>
+              </div>
+              <div className="flex flex-col px-8 py-6 space-y-8 mt-4">
+                {NAV_ITEMS.map((item, idx) => (
+                  <Link
+                    key={item.url}
+                    href={item.url}
+                    onClick={() => setSheetOpen(false)}
+                    style={{
+                      animation: `fadeInNav 0.4s ease ${(0.1 + idx * 0.12).toFixed(2)}s both`,
+                    }}
+                    className={`flex items-center gap-3 text-xl font-medium transition-colors hover:text-primary opacity-0 ${
+                      isActivePath(item.url)
+                        ? "text-foreground"
+                        : "text-foreground/60"
+                    }`}
+                  >
+                    {item.icon && <item.icon className="h-5 w-5" />}
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </SheetContent>
+        </Sheet>
+      </div>
+    );
+  }
+);
+
+MobileNavigation.displayName = "MobileNavigation";
+
+const Navigation = () => {
+  const pathname = usePathname();
+  const [sheetOpen, setSheetOpen] = useState(false);
+  const [navHidden, setNavHidden] = useState(false);
+  const lastScrollYRef = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollYRef.current && currentScrollY > 50) {
+        setNavHidden(true);
+      } else {
+        setNavHidden(false);
+      }
+
+      lastScrollYRef.current = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <>
+      <div
+        className={cn(
+          "relative w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 flex justify-center items-center py-4 transition-transform duration-300",
+          navHidden && "-translate-y-full"
+        )}
+      >
+        <MainNavBar pathname={pathname} />
+        <MobileNavigation
+          pathname={pathname}
+          sheetOpen={sheetOpen}
+          setSheetOpen={setSheetOpen}
+        />
+      </div>
+
+      <ThemeToggleButton />
+    </>
+  );
+};
+
+export default Navigation;
