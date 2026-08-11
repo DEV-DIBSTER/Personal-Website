@@ -34,6 +34,20 @@
             ],
             "automerge": true,
             "platformAutomerge": true
+        },
+        {
+            "description": "Stay on TypeScript 6.x; do not open PRs for 7.x",
+            "matchPackageNames": [
+                "typescript"
+            ],
+            "allowedVersions": "<7.0.0"
+        },
+        {
+            "description": "Stay on ESLint 9.x; do not open PRs for 10.x",
+            "matchPackageNames": [
+                "eslint"
+            ],
+            "allowedVersions": "<10.0.0"
         }
     ]
 }
